@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=LAPO
+Comment=LAPO P2P Cryptocurrency
+Comment[fr]=LAPO, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=LAPO, eşten eşe kriptografik sanal para birimi
+Exec=lapo-qt %u
+Terminal=false
+Type=Application
+Icon=lapo128
+MimeType=x-scheme-handler/lapo;
+Categories=Office;Finance;

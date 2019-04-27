@@ -1,0 +1,26 @@
+[Unit]
+Description=LAPO's distributed currency daemon
+After=network.target
+
+[Service]
+User=lapo
+Group=lapo
+
+Type=forking
+PIDFile=/var/lib/lapod/lapod.pid
+
+ExecStart=/usr/bin/lapod -daemon -pid=/var/lib/lapod/lapod.pid \
+          -conf=/etc/lapo/lapo.conf -datadir=/var/lib/lapod
+
+ExecStop=-/usr/bin/lapo-cli -conf=/etc/lapo/lapo.conf \
+         -datadir=/var/lib/lapod stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
